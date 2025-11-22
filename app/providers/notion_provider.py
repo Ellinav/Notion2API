@@ -12,7 +12,6 @@ from datetime import datetime
 from fastapi import HTTPException
 from fastapi.responses import StreamingResponse, JSONResponse
 from fastapi.concurrency import run_in_threadpool
-
 from app.core.config import settings
 from app.providers.base_provider import BaseProvider
 from app.utils.sse_utils import create_sse_data, create_chat_completion_chunk, DONE_CHUNK
@@ -409,4 +408,5 @@ class NotionAIProvider(BaseProvider):
                 for name in settings.KNOWN_MODELS
             ]
         }
+
         return JSONResponse(content=model_data)
